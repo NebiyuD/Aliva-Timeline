@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliva 2026 Roadmap | Path to Contracts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #a5b4fc;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #334155;
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+            --gradient-3: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            --gradient-4: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+            --gradient-5: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+        }
+
+        /* Key Metrics Banner */
+        .metrics-banner {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 1.5rem 2rem;
+            margin: 0 auto 3rem;
+            max-width: 900px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric:nth-child(2) .metric-value {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .metric:nth-child(3) .metric-value {
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* Strategy Banner */
+        .strategy-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 0 2rem 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .strategy-banner h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .strategy-banner p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .strategy-banner strong {
+            color: var(--text-primary);
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            position: relative;
+        }
+
+        /* Year Progress Bar */
+        .year-progress {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .year-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .year-progress-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .current-date {
+            font-size: 0.875rem;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 4px;
+            width: 3.5%;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border: 3px solid var(--bg-dark);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .months-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+        }
+
+        .month-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            width: calc(100% / 12);
+            text-align: center;
+        }
+
+        .month-label:first-child {
+            text-align: left;
+        }
+
+        .month-label:last-child {
+            text-align: right;
+        }
+
+        .month-label.current {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg,
+                var(--primary) 0%,
+                var(--secondary) 25%,
+                var(--accent) 50%,
+                #ec4899 75%,
+                var(--primary) 100%);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 900px) {
+            .timeline::before {
+                left: 20px;
+            }
+        }
+
+        /* Phase Cards */
+        .phase {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: calc(50% + 40px);
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .phase:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: calc(50% + 40px);
+        }
+
+        @media (max-width: 900px) {
+            .phase,
+            .phase:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+        }
+
+        .phase-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 4px solid var(--bg-dark);
+            z-index: 10;
+        }
+
+        @media (max-width: 900px) {
+            .phase-marker {
+                left: 20px;
+            }
+        }
+
+        .phase:nth-child(1) .phase-marker { background: var(--gradient-1); box-shadow: 0 0 30px rgba(99, 102, 241, 0.5); }
+        .phase:nth-child(2) .phase-marker { background: var(--gradient-2); box-shadow: 0 0 30px rgba(16, 185, 129, 0.5); }
+        .phase:nth-child(3) .phase-marker { background: var(--gradient-3); box-shadow: 0 0 30px rgba(245, 158, 11, 0.5); }
+        .phase:nth-child(4) .phase-marker { background: var(--gradient-4); box-shadow: 0 0 30px rgba(236, 72, 153, 0.5); }
+        .phase:nth-child(5) .phase-marker { background: var(--gradient-5); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+
+        .phase-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 550px;
+            width: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .phase:nth-child(1) .phase-content::before { background: var(--gradient-1); }
+        .phase:nth-child(2) .phase-content::before { background: var(--gradient-2); }
+        .phase:nth-child(3) .phase-content::before { background: var(--gradient-3); }
+        .phase:nth-child(4) .phase-content::before { background: var(--gradient-4); }
+        .phase:nth-child(5) .phase-content::before { background: var(--gradient-5); }
+
+        .phase-content:hover {
+            transform: translateY(-4px);
+            border-color: var(--text-muted);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .phase-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.375rem 0.75rem;
+            border-radius: 2rem;
+            white-space: nowrap;
+        }
+
+        .phase:nth-child(1) .phase-date { background: rgba(99, 102, 241, 0.2); color: var(--primary-light); }
+        .phase:nth-child(2) .phase-date { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+        .phase:nth-child(3) .phase-date { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+        .phase:nth-child(4) .phase-date { background: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+        .phase:nth-child(5) .phase-date { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+
+        .phase-status {
+            font-size: 0.625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.625rem;
+            border-radius: 0.25rem;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--secondary);
+        }
+
+        .phase-status.current {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        .phase-status.upcoming {
+            background: rgba(100, 116, 139, 0.2);
+            color: var(--text-muted);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .phase-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .phase-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Deliverables */
+        .deliverables {
+            margin-bottom: 1.5rem;
+        }
+
+        .deliverables-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .deliverable-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .deliverable-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .phase:nth-child(1) .deliverable-icon { background: rgba(99, 102, 241, 0.2); color: var(--primary-light); }
+        .phase:nth-child(2) .deliverable-icon { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+        .phase:nth-child(3) .deliverable-icon { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+        .phase:nth-child(4) .deliverable-icon { background: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+        .phase:nth-child(5) .deliverable-icon { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+
+        /* Key Outcomes */
+        .key-outcomes {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+        }
+
+        .key-outcomes-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .outcome-tag {
+            display: inline-block;
+            font-size: 0.8125rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            margin: 0.25rem;
+            font-weight: 500;
+        }
+
+        .phase:nth-child(1) .outcome-tag { background: rgba(99, 102, 241, 0.15); color: var(--primary-light); }
+        .phase:nth-child(2) .outcome-tag { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; }
+        .phase:nth-child(3) .outcome-tag { background: rgba(245, 158, 11, 0.15); color: #fcd34d; }
+        .phase:nth-child(4) .outcome-tag { background: rgba(236, 72, 153, 0.15); color: #f9a8d4; }
+        .phase:nth-child(5) .outcome-tag { background: rgba(59, 130, 246, 0.15); color: #93c5fd; }
+
+        /* Critical Success Section */
+        .critical-success {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .critical-success-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 3rem;
+        }
+
+        .critical-success h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .success-factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .success-factor {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .success-factor-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-factor:nth-child(2) .success-factor-number {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .success-factor:nth-child(3) .success-factor-number {
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .success-factor h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .success-factor p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Anti-patterns Section */
+        .anti-patterns {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .anti-patterns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .anti-pattern {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .anti-pattern-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .anti-pattern-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .anti-pattern.avoid .anti-pattern-icon {
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .anti-pattern.do .anti-pattern-icon {
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        .anti-pattern h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .anti-pattern.avoid h3 {
+            color: #fca5a5;
+        }
+
+        .anti-pattern.do h3 {
+            color: #6ee7b7;
+        }
+
+        .anti-pattern p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer .highlight {
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .phase {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .phase:nth-child(1) { animation-delay: 0.1s; }
+        .phase:nth-child(2) { animation-delay: 0.2s; }
+        .phase:nth-child(3) { animation-delay: 0.3s; }
+        .phase:nth-child(4) { animation-delay: 0.4s; }
+        .phase:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .scroll-indicator:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <header>
+        <div class="logo">Aliva</div>
+        <h1>2026 Roadmap</h1>
+        <p class="subtitle">Path to Pilot & Contracts: A parallel-track strategy for clinical validation and enterprise adoption</p>
+    </header>
+
+    <div class="metrics-banner">
+        <div class="metric">
+            <div class="metric-value">12</div>
+            <div class="metric-label">Month Horizon</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">2-5</div>
+            <div class="metric-label">Target Contracts</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">Q1</div>
+            <div class="metric-label">First Paid Pilot</div>
+        </div>
+    </div>
+
+    <div class="strategy-banner">
+        <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            Core Strategy
+        </h2>
+        <p>
+            Run <strong>two parallel tracks</strong> from day one: a short, controlled <strong>clinical pilot track</strong> that proves value and safety in weeks,
+            and a longer <strong>procurement track</strong> that matures into contracts over months. The sweet spot is <strong>read-only, evidence-linked,
+            auditable outputs</strong> plus a workflow that clinicians want to use. Avoid waiting for perfect integration or selling hospital-wide first.
+        </p>
+    </div>
+
+    <div class="timeline-container">
+        <div class="year-progress">
+            <div class="year-progress-header">
+                <span class="year-progress-title">2026 Progress</span>
+                <span class="current-date">Today: January 13, 2026</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="months-labels">
+                <span class="month-label current">Jan</span>
+                <span class="month-label">Feb</span>
+                <span class="month-label">Mar</span>
+                <span class="month-label">Apr</span>
+                <span class="month-label">May</span>
+                <span class="month-label">Jun</span>
+                <span class="month-label">Jul</span>
+                <span class="month-label">Aug</span>
+                <span class="month-label">Sep</span>
+                <span class="month-label">Oct</span>
+                <span class="month-label">Nov</span>
+                <span class="month-label">Dec</span>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <!-- Phase 1: January -->
+            <div class="phase">
+                <div class="phase-marker"></div>
+                <div class="phase-content">
+                    <div class="phase-header">
+                        <span class="phase-date">Jan 13 - Jan 31</span>
+                        <span class="phase-status current">Current Phase</span>
+                    </div>
+                    <h3 class="phase-title">MVP Lock & Compliance Foundation</h3>
+                    <p class="phase-subtitle">Freeze scope and ship pilot-grade product with minimum compliance posture to run real pilots safely.</p>
+
+                    <div class="deliverables">
+                        <div class="deliverables-title">Key Deliverables</div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Fact table + hybrid retrieval for trustworthy outputs</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>First "instrument panel" chat card (TrendChart for labs/vitals)</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Data flow diagram, access controls, audit logs</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Encryption (transit + rest), BAA-ready posture</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Line up pilot champions, define shadow pilot format</span>
+                        </div>
+                    </div>
+
+                    <div class="key-outcomes">
+                        <div class="key-outcomes-title">Target Outcomes</div>
+                        <span class="outcome-tag">Scope Freeze</span>
+                        <span class="outcome-tag">Source-Linked Outputs</span>
+                        <span class="outcome-tag">Pilot-Ready Compliance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: February -->
+            <div class="phase">
+                <div class="phase-marker"></div>
+                <div class="phase-content">
+                    <div class="phase-header">
+                        <span class="phase-date">February 2026</span>
+                        <span class="phase-status upcoming">Upcoming</span>
+                    </div>
+                    <h3 class="phase-title">Shadow Pilots</h3>
+                    <p class="phase-subtitle">Run 2-4 shadow pilots in parallel. Clinicians view outputs, nothing writes to chart. Generate hard numbers fast.</p>
+
+                    <div class="deliverables">
+                        <div class="deliverables-title">Key Deliverables</div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>2-4 parallel shadow pilots (ED ramp, handoff, "what changed")</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Metrics: minutes saved, citation click rate, correction rate</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>SMART on FHIR launch + read-only FHIR integration</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Pilot report suitable for department chair review</span>
+                        </div>
+                    </div>
+
+                    <div class="key-outcomes">
+                        <div class="key-outcomes-title">Target Outcomes</div>
+                        <span class="outcome-tag">Hard Metrics</span>
+                        <span class="outcome-tag">Clinician Feedback</span>
+                        <span class="outcome-tag">Integration Path</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: March-April -->
+            <div class="phase">
+                <div class="phase-marker"></div>
+                <div class="phase-content">
+                    <div class="phase-header">
+                        <span class="phase-date">Mar - Apr 2026</span>
+                        <span class="phase-status upcoming">Upcoming</span>
+                    </div>
+                    <h3 class="phase-title">Paid Pilots & Early Contracts</h3>
+                    <p class="phase-subtitle">Convert best pilots to paid departmental agreements. Move from "testing" to "delivering operational value."</p>
+
+                    <div class="deliverables">
+                        <div class="deliverables-title">Key Deliverables</div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Convert top pilots to paid departmental pilots</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Simple pricing: flat monthly/dept or per-clinician annual</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Contract language tied to value & safety, not model perf</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Begin one longer-lead hospital procurement conversation</span>
+                        </div>
+                    </div>
+
+                    <div class="key-outcomes">
+                        <div class="key-outcomes-title">Target Outcomes</div>
+                        <span class="outcome-tag">First Revenue</span>
+                        <span class="outcome-tag">Dept Contracts</span>
+                        <span class="outcome-tag">Enterprise Pipeline</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: May-August -->
+            <div class="phase">
+                <div class="phase-marker"></div>
+                <div class="phase-content">
+                    <div class="phase-header">
+                        <span class="phase-date">May - Aug 2026</span>
+                        <span class="phase-status upcoming">Upcoming</span>
+                    </div>
+                    <h3 class="phase-title">Expand & Replicate</h3>
+                    <p class="phase-subtitle">Expand inside first paying department. Replicate to 2-5 more departments. Build workflow habits that are hard to copy.</p>
+
+                    <div class="deliverables">
+                        <div class="deliverables-title">Key Deliverables</div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Expand within first paying department</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Replicate to 2-5 additional departments/groups</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Workflow features: change-since-arrival, conflict cards, templates</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Harden security package for vendor questionnaires</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Prepare for deeper Boston institution reviews</span>
+                        </div>
+                    </div>
+
+                    <div class="key-outcomes">
+                        <div class="key-outcomes-title">Target Outcomes</div>
+                        <span class="outcome-tag">Multi-Dept Adoption</span>
+                        <span class="outcome-tag">Workflow Lock-in</span>
+                        <span class="outcome-tag">Security Hardening</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 5: September-December -->
+            <div class="phase">
+                <div class="phase-marker"></div>
+                <div class="phase-content">
+                    <div class="phase-header">
+                        <span class="phase-date">Sep - Dec 2026</span>
+                        <span class="phase-status upcoming">Upcoming</span>
+                    </div>
+                    <h3 class="phase-title">Enterprise Contracts</h3>
+                    <p class="phase-subtitle">Sign at least one larger agreement. Realistic target: department-wide contract inside large hospital or multi-site group contract.</p>
+
+                    <div class="deliverables">
+                        <div class="deliverables-title">Key Deliverables</div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Sign 1+ larger agreement (dept-wide or multi-site)</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Expansion language for 2027 growth</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Clear path to grow footprint in major institutions</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <span class="deliverable-icon">&#10003;</span>
+                            <span>Position for potential hospital-wide rollout (if champion exists)</span>
+                        </div>
+                    </div>
+
+                    <div class="key-outcomes">
+                        <div class="key-outcomes-title">Target Outcomes</div>
+                        <span class="outcome-tag">Enterprise Contract</span>
+                        <span class="outcome-tag">2027 Pipeline</span>
+                        <span class="outcome-tag">Proven Scale</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="critical-success">
+        <div class="critical-success-card">
+            <h2>Critical Success Factors</h2>
+            <div class="success-factors">
+                <div class="success-factor">
+                    <div class="success-factor-number">01</div>
+                    <h3>Speed of MVP Stabilization</h3>
+                    <p>Lock pilot-grade MVP by end of January. Fact table, hybrid retrieval, and source-linked outputs must be trustworthy.</p>
+                </div>
+                <div class="success-factor">
+                    <div class="success-factor-number">02</div>
+                    <h3>Multiple Parallel Pilots</h3>
+                    <p>Run 2-4 shadow pilots simultaneously in February. Generate hard metrics fast: minutes saved, click rates, correction rates.</p>
+                </div>
+                <div class="success-factor">
+                    <div class="success-factor-number">03</div>
+                    <h3>Department-Level Sales</h3>
+                    <p>Contract structure lets departments buy without full system-wide committee approval. Simple pricing, value-tied terms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="anti-patterns">
+        <div class="anti-patterns-grid">
+            <div class="anti-pattern avoid">
+                <div class="anti-pattern-header">
+                    <div class="anti-pattern-icon">&#10007;</div>
+                    <h3>What Kills "Contracts Before Year End"</h3>
+                </div>
+                <p>Waiting for perfect integration. Trying to sell hospital-wide first. Getting stuck in governance with write-back workflows. Over-engineering before proving value.</p>
+            </div>
+            <div class="anti-pattern do">
+                <div class="anti-pattern-header">
+                    <div class="anti-pattern-icon">&#10003;</div>
+                    <h3>What Makes It Work</h3>
+                </div>
+                <p>Selling a workflow clinicians immediately adopt. Citations and measurable time savings. Read-only, auditable outputs. Let integration expand after first contract proves you're real.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Aliva 2026 Roadmap &mdash; <span class="highlight">Path to Pilot ASAP & Contracts Before Year End</span></p>
+        <p style="margin-top: 0.5rem;">Last updated: January 13, 2026</p>
+    </footer>
+
+    <a href="#" class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 4l-8 8h6v8h4v-8h6z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.phase').forEach(phase => {
+            observer.observe(phase);
+        });
+
+        // Update progress bar based on current date
+        function updateProgress() {
+            const startOfYear = new Date('2026-01-01');
+            const endOfYear = new Date('2026-12-31');
+            const today = new Date('2026-01-13');
+
+            const totalDays = (endOfYear - startOfYear) / (1000 * 60 * 60 * 24);
+            const daysPassed = (today - startOfYear) / (1000 * 60 * 60 * 24);
+            const percentage = (daysPassed / totalDays) * 100;
+
+            document.querySelector('.progress-fill').style.width = percentage + '%';
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>
